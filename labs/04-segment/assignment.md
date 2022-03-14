@@ -1,4 +1,4 @@
-# Lab 4: Daniel Smyd
+# Lab 4: Tomas Figala
 
 ### Seven-segment display decoder
 
@@ -23,33 +23,44 @@
         report "Input combination 0010 FAILED" severity error;
 
         s_hex <= "0011"; wait for 50 ns; -- 3
+        assert (s_seg = "0000110")
         
         s_hex <= "0100"; wait for 50 ns; -- 4
         assert (s_seg = "1001100")
-        report "Input combination 0100 FAILED" severity error;
 
         s_hex <= "0101"; wait for 50 ns; -- 5   
+        assert (s_seg = "0100100")
         
         s_hex <= "0110"; wait for 50 ns; -- 6
+        assert (s_seg = "0100000")
         
         s_hex <= "0111"; wait for 50 ns; -- 7
+        assert (s_seg = "0001111")
         
         s_hex <= "1000"; wait for 50 ns; -- 8
+        assert (s_seg = "0000000")
         
         s_hex <= "1001"; wait for 50 ns; -- 9
+        assert (s_seg = "0000100")
         
-        s_hex <= "1010"; wait for 50 ns; -- A (10)
+        s_hex <= "1010"; wait for 50 ns; -- A
+        assert (s_seg = "0001000")
         
-        s_hex <= "1011"; wait for 50 ns; -- b (11)
+        s_hex <= "1011"; wait for 50 ns; -- b
+        assert (s_seg = "1100000")
         
         s_hex <= "1100"; wait for 50 ns; -- C 
+        assert (s_seg = "0110001")
         
         s_hex <= "1101"; wait for 50 ns; -- d
+        assert (s_seg = "1000010")
         
         s_hex <= "1110"; wait for 50 ns; -- E
+        assert (s_seg = "0110000")
         
         s_hex <= "1111"; wait for 50 ns; -- F
-
+        assert (s_seg = "0111000")
+        
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;
